@@ -1,0 +1,10 @@
+A quick repository to store the hundreds of jobs that Jenkins uses.
+
+Periodically, on test.pear.php.net.
+$ sudo sudo jenkins
+$ cd ~/
+$ git add jobs/*/config.xml
+$ git commit -m "Updated to new jobs" .
+$ git push -u origin master
+
+If you write to this repository (ie: via an autoamted script); don't forget to git pull on the relevant environment; and reload configuration from disk in jenkins admin
