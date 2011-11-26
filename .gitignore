@@ -1,0 +1,6 @@
+jobs/*/builds/
+jobs/*/lastStable
+jobs/*/lastSuccessful
+jobs/*/nextBuildNumber
+jobs/*/*.log
+jobs/*/svnexternals.txt
