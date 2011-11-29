@@ -7,10 +7,30 @@
   <numExecutors>5</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
-  <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy"/>
-  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
-    <disableSignup>true</disableSignup>
-    <enableCaptcha>false</enableCaptcha>
+  <authorizationStrategy class="org.jenkinsci.plugins.GithubAuthorizationStrategy">
+    <rootACL>
+      <organizationNameList class="linked-list">
+        <string>pear</string>
+      </organizationNameList>
+      <adminUserNameList class="linked-list">
+        <string>CloCkWeRX</string>
+        <string>cweiske</string>
+        <string>davidcoallier</string>
+        <string>saltybeagle</string>
+        <string>gauthierm</string>
+        <string>helgi</string>
+        <string>kenguest</string>
+        <string>till</string>
+      </adminUserNameList>
+      <authenticatedUserReadPermission>false</authenticatedUserReadPermission>
+      <allowGithubWebHookPermission>true</allowGithubWebHookPermission>
+      <allowAnonymousReadPermission>true</allowAnonymousReadPermission>
+    </rootACL>
+  </authorizationStrategy>
+  <securityRealm class="org.jenkinsci.plugins.GithubSecurityRealm">
+    <githubUri>https://github.com</githubUri>
+    <clientID>1d0da4bfa6af947f0490</clientID>
+    <clientSecret>c71ab7fa1e1ddd84676d4ae8ba1a0e4c8ef82e65</clientSecret>
   </securityRealm>
   <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
@@ -69,6 +89,7 @@
         <string>Math_Integer</string>
         <string>Math_Matrix</string>
         <string>Math_Stats</string>
+        <string>Math_TrigOp</string>
         <string>Math_Vector</string>
         <string>MP3_Playlist</string>
         <string>Net_Cyrus</string>
@@ -84,7 +105,16 @@
         <string>Text_TeXHyphen</string>
         <string>Text_Wiki</string>
         <string>Validate</string>
+        <string>Validate_AR</string>
+        <string>Validate_AT</string>
+        <string>Validate_BE</string>
+        <string>Validate_FR</string>
+        <string>Validate_HU</string>
+        <string>Validate_IN</string>
+        <string>Validate_IS</string>
+        <string>Validate_NL</string>
         <string>Validate_PL</string>
+        <string>Validate_ZA</string>
         <string>XML_FastCreate</string>
         <string>XML_Feed_Parser</string>
       </jobNames>

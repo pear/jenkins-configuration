@@ -27,13 +27,16 @@
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
     <hudson.triggers.SCMTrigger>
-      <spec></spec>
+      <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
       <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/AllTests.php</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>pear package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

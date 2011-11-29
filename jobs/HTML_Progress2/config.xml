@@ -3,6 +3,7 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
+  <properties/>
   <scm class="hudson.scm.SubversionSCM">
     <locations>
       <hudson.scm.SubversionSCM_-ModuleLocation>
@@ -25,14 +26,20 @@
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
-    <hudson.triggers.SCMTrigger>
+    <com.cloudbees.jenkins.GitHubPushTrigger>
       <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
+      <command>rm -fR lib &amp;&amp; git clone git://github.com/pear/HTML_CSS.git lib/HTML_CSS&amp;&amp; git clone git://github.com/pear/Image_Color.git lib/Image_Color </command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>phpunit -d error_reporting=30719 --include-path lib/HTML_CSS:lib/Image_Color --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
