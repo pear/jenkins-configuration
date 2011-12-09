@@ -43,7 +43,7 @@
       <command>rm -fR lib &amp;&amp; git clone git://github.com/pear/MIME_Type.git lib</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>phpunit -d error_reporting=30719 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml --include-path lib/ tests/</command>
+      <command>phpunit -d error_reporting=22527 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml --include-path lib/ tests/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>pear package</command>

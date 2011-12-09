@@ -33,7 +33,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>cd tests/ &amp;&amp; phpunit -c phpunit.xml --coverage-html ../build/coverage/ --coverage-clover ../build/logs/clover.xml --log-junit ../build/logs/junit.xml .</command>
+      <command>cd tests/ &amp;&amp; phpunit -d error_reporting=30719 -c phpunit.xml --coverage-html ../build/coverage/ --coverage-clover ../build/logs/clover.xml --log-junit ../build/logs/junit.xml .</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
