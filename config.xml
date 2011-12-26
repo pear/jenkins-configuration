@@ -3,7 +3,7 @@
   <disabledAdministrativeMonitors>
     <string>hudson.diagnosis.TooManyJobsButNoView</string>
   </disabledAdministrativeMonitors>
-  <version>1.440</version>
+  <version>1.442</version>
   <numExecutors>5</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -42,7 +42,7 @@
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds/>
   <slaves/>
-  <quietPeriod>5</quietPeriod>
+  <quietPeriod>0</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>
     <hudson.model.AllView>
@@ -101,6 +101,7 @@
         <string>Services_Webservice</string>
         <string>Services_YouTube</string>
         <string>Structures_Graph</string>
+        <string>Text_Highlighter</string>
         <string>Text_Statistics</string>
         <string>Text_TeXHyphen</string>
         <string>Text_Wiki</string>
