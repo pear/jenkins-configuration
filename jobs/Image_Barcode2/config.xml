@@ -5,16 +5,16 @@
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty>
-      <projectUrl>http://github.com/pear/Image_Text/</projectUrl>
+      <projectUrl>http://github.com/pear/Image_Barcode2/</projectUrl>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
   </properties>
   <scm class="hudson.plugins.git.GitSCM">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <name></name>
-        <refspec></refspec>
-        <url>git://github.com/pear/Image_Text.git</url>
+        <name>origin</name>
+        <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
+        <url>git://github.com/pear/Image_Barcode2.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -67,18 +67,18 @@
     <hudson.plugins.checkstyle.CheckStylePublisher>
       <healthy></healthy>
       <unHealthy></unHealthy>
-      <thresholdLimit>low</thresholdLimit>
+      <thresholdLimit>high</thresholdLimit>
       <pluginName>[CHECKSTYLE] </pluginName>
       <defaultEncoding></defaultEncoding>
       <canRunOnFailed>false</canRunOnFailed>
       <useDeltaValues>false</useDeltaValues>
       <thresholds>
         <unstableTotalAll></unstableTotalAll>
-        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalHigh>100</unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
         <unstableTotalLow></unstableTotalLow>
         <failedTotalAll></failedTotalAll>
-        <failedTotalHigh></failedTotalHigh>
+        <failedTotalHigh>200</failedTotalHigh>
         <failedTotalNormal></failedTotalNormal>
         <failedTotalLow></failedTotalLow>
       </thresholds>

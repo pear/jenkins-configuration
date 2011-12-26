@@ -3,20 +3,44 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
-  <scm class="hudson.scm.SubversionSCM">
-    <locations>
-      <hudson.scm.SubversionSCM_-ModuleLocation>
-        <remote>http://svn.php.net/repository/pear/packages/HTML_Progress2/trunk</remote>
-        <local>.</local>
-      </hudson.scm.SubversionSCM_-ModuleLocation>
-    </locations>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty>
+      <projectUrl>http://github.com/pear/HTML_Progress2/</projectUrl>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name></name>
+        <refspec></refspec>
+        <url>git://github.com/pear/HTML_Progress2.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <disableSubmodules>false</disableSubmodules>
+    <recursiveSubmodules>false</recursiveSubmodules>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <authorOrCommitter>false</authorOrCommitter>
+    <clean>false</clean>
+    <wipeOutWorkspace>false</wipeOutWorkspace>
+    <pruneBranches>false</pruneBranches>
+    <remotePoll>false</remotePoll>
+    <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
+    <gitTool>Default</gitTool>
+    <submoduleCfg class="list"/>
+    <relativeTargetDir></relativeTargetDir>
+    <reference></reference>
     <excludedRegions></excludedRegions>
-    <includedRegions></includedRegions>
     <excludedUsers></excludedUsers>
-    <excludedRevprop></excludedRevprop>
-    <excludedCommitMessages></excludedCommitMessages>
-    <workspaceUpdater class="hudson.scm.subversion.UpdateUpdater"/>
+    <gitConfigName></gitConfigName>
+    <gitConfigEmail></gitConfigEmail>
+    <skipTag>false</skipTag>
+    <scmName></scmName>
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -35,14 +59,33 @@
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.tasks.Shell>
-      <command>rm -fR lib &amp;&amp; git clone git://github.com/pear/HTML_CSS.git lib/HTML_CSS&amp;&amp; git clone git://github.com/pear/Image_Color.git lib/Image_Color </command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>phpunit -d error_reporting=30719 --include-path lib/HTML_CSS:lib/Image_Color --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
-    </hudson.tasks.Shell>
+    <hudson.tasks.Ant>
+      <targets>build</targets>
+    </hudson.tasks.Ant>
   </builders>
   <publishers>
+    <hudson.plugins.checkstyle.CheckStylePublisher>
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>normal</thresholdLimit>
+      <pluginName>[CHECKSTYLE] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>true</canRunOnFailed>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds>
+        <unstableTotalAll>200</unstableTotalAll>
+        <unstableTotalHigh>1</unstableTotalHigh>
+        <unstableTotalNormal>10</unstableTotalNormal>
+        <unstableTotalLow>100</unstableTotalLow>
+        <failedTotalAll>2000</failedTotalAll>
+        <failedTotalHigh>10</failedTotalHigh>
+        <failedTotalNormal>100</failedTotalNormal>
+        <failedTotalLow>1000</failedTotalLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <pattern>build/logs/checkstyle.xml</pattern>
+    </hudson.plugins.checkstyle.CheckStylePublisher>
     <org.jenkinsci.plugins.cloverphp.CloverPublisher>
       <publishHtmlReport>true</publishHtmlReport>
       <reportDir>build/coverage</reportDir>

@@ -47,6 +47,14 @@
     </hudson.tasks.Shell>
   </builders>
   <publishers>
+    <hudson.tasks.BuildTrigger>
+      <childProjects>HTML_Progress2</childProjects>
+      <threshold>
+        <name>SUCCESS</name>
+        <ordinal>0</ordinal>
+        <color>BLUE</color>
+      </threshold>
+    </hudson.tasks.BuildTrigger>
     <org.jenkinsci.plugins.cloverphp.CloverPublisher>
       <publishHtmlReport>true</publishHtmlReport>
       <reportDir>build/coverage</reportDir>

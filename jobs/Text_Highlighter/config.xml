@@ -5,7 +5,7 @@
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty>
-      <projectUrl>http://github.com/pear/Image_Text/</projectUrl>
+      <projectUrl>http://github.com/pear/Text_Highlighter/</projectUrl>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
   </properties>
   <scm class="hudson.plugins.git.GitSCM">
@@ -14,7 +14,7 @@
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>git://github.com/pear/Image_Text.git</url>
+        <url>git://github.com/pear/Text_Highlighter.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -59,50 +59,10 @@
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
-    <hudson.tasks.Ant>
-      <targets>build</targets>
-    </hudson.tasks.Ant>
+    <hudson.tasks.Shell>
+      <command>php ~/pyrus.phar package</command>
+    </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.plugins.checkstyle.CheckStylePublisher>
-      <healthy></healthy>
-      <unHealthy></unHealthy>
-      <thresholdLimit>low</thresholdLimit>
-      <pluginName>[CHECKSTYLE] </pluginName>
-      <defaultEncoding></defaultEncoding>
-      <canRunOnFailed>false</canRunOnFailed>
-      <useDeltaValues>false</useDeltaValues>
-      <thresholds>
-        <unstableTotalAll></unstableTotalAll>
-        <unstableTotalHigh></unstableTotalHigh>
-        <unstableTotalNormal></unstableTotalNormal>
-        <unstableTotalLow></unstableTotalLow>
-        <failedTotalAll></failedTotalAll>
-        <failedTotalHigh></failedTotalHigh>
-        <failedTotalNormal></failedTotalNormal>
-        <failedTotalLow></failedTotalLow>
-      </thresholds>
-      <shouldDetectModules>false</shouldDetectModules>
-      <dontComputeNew>true</dontComputeNew>
-      <pattern>build/logs/checkstyle.xml</pattern>
-    </hudson.plugins.checkstyle.CheckStylePublisher>
-    <org.jenkinsci.plugins.cloverphp.CloverPublisher>
-      <publishHtmlReport>true</publishHtmlReport>
-      <reportDir>build/coverage</reportDir>
-      <xmlLocation>build/logs/clover.xml</xmlLocation>
-      <disableArchiving>false</disableArchiving>
-      <healthyTarget>
-        <methodCoverage>70</methodCoverage>
-        <statementCoverage>80</statementCoverage>
-      </healthyTarget>
-      <unhealthyTarget/>
-      <failingTarget/>
-    </org.jenkinsci.plugins.cloverphp.CloverPublisher>
-    <hudson.tasks.junit.JUnitResultArchiver>
-      <testResults>build/logs/junit.xml</testResults>
-      <keepLongStdio>false</keepLongStdio>
-      <testDataPublishers/>
-    </hudson.tasks.junit.JUnitResultArchiver>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>

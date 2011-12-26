@@ -5,16 +5,16 @@
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty>
-      <projectUrl>http://github.com/pear/Image_Text/</projectUrl>
+      <projectUrl>http://github.com/pear/Services_ExchangeRates/</projectUrl>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
   </properties>
   <scm class="hudson.plugins.git.GitSCM">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <name></name>
-        <refspec></refspec>
-        <url>git://github.com/pear/Image_Text.git</url>
+        <name>origin</name>
+        <refspec>+refs/heads/*:refs/remotes/origin/*</refspec>
+        <url>git://github.com/pear/Services_ExchangeRates.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -77,13 +77,21 @@
         <unstableTotalHigh></unstableTotalHigh>
         <unstableTotalNormal></unstableTotalNormal>
         <unstableTotalLow></unstableTotalLow>
+        <unstableNewAll></unstableNewAll>
+        <unstableNewHigh></unstableNewHigh>
+        <unstableNewNormal></unstableNewNormal>
+        <unstableNewLow></unstableNewLow>
         <failedTotalAll></failedTotalAll>
         <failedTotalHigh></failedTotalHigh>
         <failedTotalNormal></failedTotalNormal>
         <failedTotalLow></failedTotalLow>
+        <failedNewAll></failedNewAll>
+        <failedNewHigh></failedNewHigh>
+        <failedNewNormal></failedNewNormal>
+        <failedNewLow></failedNewLow>
       </thresholds>
       <shouldDetectModules>false</shouldDetectModules>
-      <dontComputeNew>true</dontComputeNew>
+      <dontComputeNew>false</dontComputeNew>
       <pattern>build/logs/checkstyle.xml</pattern>
     </hudson.plugins.checkstyle.CheckStylePublisher>
     <org.jenkinsci.plugins.cloverphp.CloverPublisher>
