@@ -3,6 +3,7 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
+  <properties/>
   <scm class="hudson.scm.SubversionSCM">
     <locations>
       <hudson.scm.SubversionSCM_-ModuleLocation>
@@ -26,7 +27,7 @@
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
     <hudson.triggers.SCMTrigger>
-      <spec></spec>
+      <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>

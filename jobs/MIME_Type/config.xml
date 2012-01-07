@@ -5,7 +5,7 @@
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty>
-      <projectUrl>http://github.com/pear/Mail_Mime/</projectUrl>
+      <projectUrl>http://github.com/pear/MIME_Type/</projectUrl>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
   </properties>
   <scm class="hudson.plugins.git.GitSCM">
@@ -14,12 +14,12 @@
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>git://github.com/pear/Mail_Mime.git</url>
+        <url>git://github.com/pear/MIME_Type.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>master</name>
+        <name>**</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <disableSubmodules>false</disableSubmodules>
@@ -60,36 +60,16 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
       <command>pear package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <org.jenkinsci.plugins.cloverphp.CloverPublisher>
-      <publishHtmlReport>true</publishHtmlReport>
-      <reportDir>build/coverage</reportDir>
-      <xmlLocation>build/logs/clover.xml</xmlLocation>
-      <disableArchiving>false</disableArchiving>
-      <healthyTarget>
-        <methodCoverage>70</methodCoverage>
-        <statementCoverage>80</statementCoverage>
-      </healthyTarget>
-      <unhealthyTarget/>
-      <failingTarget/>
-    </org.jenkinsci.plugins.cloverphp.CloverPublisher>
-    <hudson.tasks.junit.JUnitResultArchiver>
-      <testResults>build/logs/junit.xml</testResults>
-      <keepLongStdio>false</keepLongStdio>
-      <testDataPublishers/>
-    </hudson.tasks.junit.JUnitResultArchiver>
     <hudson.tasks.BuildTrigger>
-      <childProjects>Mail_mimeDecode</childProjects>
+      <childProjects>File_Archive, Gtk_FileDrop, HTTP_Download</childProjects>
       <threshold>
-        <name>SUCCESS</name>
-        <ordinal>0</ordinal>
-        <color>BLUE</color>
+        <name>FAILURE</name>
+        <ordinal>2</ordinal>
+        <color>RED</color>
       </threshold>
     </hudson.tasks.BuildTrigger>
   </publishers>

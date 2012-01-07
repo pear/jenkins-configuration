@@ -3,7 +3,11 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty>
+      <projectUrl>http://pear.php.net/package/PHP_DocBlockGenerator/</projectUrl>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
   <scm class="hudson.scm.SubversionSCM">
     <locations>
       <hudson.scm.SubversionSCM_-ModuleLocation>
@@ -36,19 +40,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>rm -fR lib &amp;&amp; svn export https://svn.php.net/repository/pear/packages/PHP_CompatInfo/trunk lib/</command>
+      <command>phpunit -d error_reporting=22527 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>rm -fR PHP/ &amp;&amp; mkdir PHP/ &amp;&amp; mv DocBlockGenerator.php PHP/ &amp;&amp; mv DocBlockGenerator PHP/</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>phpunit -d error_reporting=30719 --include-path lib --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>mv PHP/DocBlockGenerator.php . &amp;&amp; mv PHP/DocBlockGenerator . &amp;&amp; rm -fR PHP/</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>pear package</command>
+      <command>pear package package.xml</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

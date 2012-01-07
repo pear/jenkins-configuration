@@ -7,7 +7,7 @@
   <scm class="hudson.scm.SubversionSCM">
     <locations>
       <hudson.scm.SubversionSCM_-ModuleLocation>
-        <remote>http://svn.php.net/repository/pear/packages/Net_UserAgent_Mobile/trunk</remote>
+        <remote>http://svn.php.net/repository/pear/packages/Text_PathNavigator/trunk</remote>
         <local>.</local>
       </hudson.scm.SubversionSCM_-ModuleLocation>
     </locations>
@@ -26,9 +26,6 @@
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger>
-      <spec></spec>
-    </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
       <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
@@ -36,13 +33,25 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>phpunit -d error_reporting=22527 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/AllTests.php</command>
+      <command>phpunit -d error_reporting=30719 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>pear package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
+    <org.jenkinsci.plugins.cloverphp.CloverPublisher>
+      <publishHtmlReport>true</publishHtmlReport>
+      <reportDir>build/coverage</reportDir>
+      <xmlLocation>build/logs/clover.xml</xmlLocation>
+      <disableArchiving>false</disableArchiving>
+      <healthyTarget>
+        <methodCoverage>70</methodCoverage>
+        <statementCoverage>80</statementCoverage>
+      </healthyTarget>
+      <unhealthyTarget/>
+      <failingTarget/>
+    </org.jenkinsci.plugins.cloverphp.CloverPublisher>
     <hudson.tasks.junit.JUnitResultArchiver>
       <testResults>build/logs/junit.xml</testResults>
       <keepLongStdio>false</keepLongStdio>

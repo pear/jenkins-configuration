@@ -60,12 +60,30 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>pear run-tests -r tests/</command>
+      <command>phpunit -d error_reporting=22527 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>pear package</command>
+      <command>pear package package2.xml</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers/>
+  <publishers>
+    <org.jenkinsci.plugins.cloverphp.CloverPublisher>
+      <publishHtmlReport>true</publishHtmlReport>
+      <reportDir>build/coverage/</reportDir>
+      <xmlLocation>build/logs/clover.xml</xmlLocation>
+      <disableArchiving>false</disableArchiving>
+      <healthyTarget>
+        <methodCoverage>70</methodCoverage>
+        <statementCoverage>80</statementCoverage>
+      </healthyTarget>
+      <unhealthyTarget/>
+      <failingTarget/>
+    </org.jenkinsci.plugins.cloverphp.CloverPublisher>
+    <hudson.tasks.junit.JUnitResultArchiver>
+      <testResults>build/logs/junit.xml</testResults>
+      <keepLongStdio>false</keepLongStdio>
+      <testDataPublishers/>
+    </hudson.tasks.junit.JUnitResultArchiver>
+  </publishers>
   <buildWrappers/>
 </project>

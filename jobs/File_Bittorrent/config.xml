@@ -2,6 +2,12 @@
 <project>
   <actions/>
   <description></description>
+  <logRotator>
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>5</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
   <keepDependencies>false</keepDependencies>
   <properties>
     <com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -22,6 +28,7 @@
         <name>master</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
+    <disableSubmodules>false</disableSubmodules>
     <recursiveSubmodules>false</recursiveSubmodules>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
     <authorOrCommitter>false</authorOrCommitter>
@@ -33,6 +40,7 @@
     <gitTool>Default</gitTool>
     <submoduleCfg class="list"/>
     <relativeTargetDir></relativeTargetDir>
+    <reference></reference>
     <excludedRegions></excludedRegions>
     <excludedUsers></excludedUsers>
     <gitConfigName></gitConfigName>
@@ -45,20 +53,14 @@
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers class="vector">
-    <hudson.triggers.TimerTrigger>
-      <spec>@weekly</spec>
-    </hudson.triggers.TimerTrigger>
     <com.cloudbees.jenkins.GitHubPushTrigger>
       <spec></spec>
     </com.cloudbees.jenkins.GitHubPushTrigger>
-    <hudson.triggers.SCMTrigger>
-      <spec>@daily</spec>
-    </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml Tests/AllTests.php</command>
+      <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

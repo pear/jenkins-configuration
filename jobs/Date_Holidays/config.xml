@@ -26,8 +26,11 @@
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
-    <hudson.triggers.SCMTrigger>
+    <com.cloudbees.jenkins.GitHubPushTrigger>
       <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>

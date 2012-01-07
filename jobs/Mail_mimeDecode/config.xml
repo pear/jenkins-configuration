@@ -33,7 +33,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>svn export --force http://svn.php.net/repository/pear/packages/Mail_Mime/trunk lib</command>
+      <command>rm -fR lib/ &amp;&amp; git clone git://github.com/pear/Mail_Mime.git lib/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>phpunit --include-path lib/ --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>

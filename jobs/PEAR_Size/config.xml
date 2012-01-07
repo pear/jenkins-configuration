@@ -3,6 +3,7 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
+  <properties/>
   <scm class="hudson.scm.SubversionSCM">
     <locations>
       <hudson.scm.SubversionSCM_-ModuleLocation>
@@ -32,27 +33,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
+      <command>php -d error_reporting=22527 tests/</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <org.jenkinsci.plugins.cloverphp.CloverPublisher>
-      <publishHtmlReport>true</publishHtmlReport>
-      <reportDir>build/coverage</reportDir>
-      <xmlLocation>build/logs/clover.xml</xmlLocation>
-      <disableArchiving>false</disableArchiving>
-      <healthyTarget>
-        <methodCoverage>70</methodCoverage>
-        <statementCoverage>80</statementCoverage>
-      </healthyTarget>
-      <unhealthyTarget/>
-      <failingTarget/>
-    </org.jenkinsci.plugins.cloverphp.CloverPublisher>
-    <hudson.tasks.junit.JUnitResultArchiver>
-      <testResults>build/logs/junit.xml</testResults>
-      <keepLongStdio>false</keepLongStdio>
-      <testDataPublishers/>
-    </hudson.tasks.junit.JUnitResultArchiver>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>

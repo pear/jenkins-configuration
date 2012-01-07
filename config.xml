@@ -3,7 +3,7 @@
   <disabledAdministrativeMonitors>
     <string>hudson.diagnosis.TooManyJobsButNoView</string>
   </disabledAdministrativeMonitors>
-  <version>1.442</version>
+  <version>1.446</version>
   <numExecutors>5</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -11,6 +11,8 @@
     <rootACL>
       <organizationNameList class="linked-list">
         <string>pear</string>
+        <string>pear2</string>
+        <string>pyrus</string>
       </organizationNameList>
       <adminUserNameList class="linked-list">
         <string>CloCkWeRX</string>
@@ -22,7 +24,7 @@
         <string>kenguest</string>
         <string>till</string>
       </adminUserNameList>
-      <authenticatedUserReadPermission>false</authenticatedUserReadPermission>
+      <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
       <allowGithubWebHookPermission>true</allowGithubWebHookPermission>
       <allowAnonymousReadPermission>true</allowAnonymousReadPermission>
     </rootACL>
@@ -62,49 +64,81 @@
       <jobNames class="tree-set">
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
         <string>Auth_SASL</string>
+        <string>Benchmark</string>
         <string>Console_Getargs</string>
         <string>Contact_AddressBook</string>
         <string>Crypt_RC42</string>
         <string>Crypt_RSA</string>
+        <string>Date</string>
         <string>DB_ldap</string>
         <string>DB_ldap2</string>
         <string>DB_Sqlite_Tools</string>
         <string>DB_Table</string>
         <string>File_DNS</string>
+        <string>File_Passwd</string>
         <string>File_SearchReplace</string>
         <string>File_Sitemap</string>
         <string>Games_Chess</string>
+        <string>Gtk2_IndexedComboBox</string>
+        <string>Gtk_FileDrop</string>
+        <string>HTML_BBCodeParser</string>
         <string>HTML_CSS</string>
         <string>HTML_Javascript</string>
         <string>HTML_Progress2</string>
         <string>HTML_QuickForm_advmultiselect</string>
+        <string>HTML_Template_PHPLIB</string>
+        <string>HTML_Template_Xipe</string>
         <string>HTTP_Header</string>
         <string>HTTP_Upload</string>
+        <string>HTTP_WebDAV_Client</string>
         <string>HTTP_WebDAV_Server</string>
+        <string>Image_Canvas</string>
         <string>Image_Color</string>
         <string>Image_Color2</string>
+        <string>Image_Text</string>
+        <string>Mail_Mbox</string>
         <string>Math_Basex</string>
         <string>Math_Complex</string>
         <string>Math_Finance</string>
         <string>Math_Integer</string>
         <string>Math_Matrix</string>
+        <string>Math_Quaternion</string>
         <string>Math_Stats</string>
         <string>Math_TrigOp</string>
         <string>Math_Vector</string>
+        <string>MIME_Type</string>
         <string>MP3_Playlist</string>
         <string>Net_Cyrus</string>
+        <string>Net_FTP</string>
         <string>Net_HL7</string>
+        <string>Net_IMAP</string>
         <string>Net_Monitor</string>
+        <string>Net_Ping</string>
         <string>Net_SMS</string>
+        <string>Net_Wifi</string>
         <string>Numbers_Roman</string>
+        <string>OpenDocument</string>
+        <string>PEAR_Frontend_Gtk2</string>
+        <string>PEAR_PackageUpdate</string>
+        <string>PHP_Parser</string>
+        <string>PHP_ParserGenerator</string>
+        <string>PHP_Shell</string>
+        <string>QA_Peardoc_Coverage</string>
+        <string>Science_Chemistry</string>
+        <string>Services_Delicious</string>
+        <string>Services_Ebay</string>
+        <string>Services_ExchangeRates</string>
         <string>Services_W3C_CSSValidator</string>
         <string>Services_Webservice</string>
         <string>Services_YouTube</string>
+        <string>Stream_Var</string>
+        <string>Structures_DataGrid</string>
         <string>Structures_Graph</string>
         <string>Text_Highlighter</string>
         <string>Text_Statistics</string>
         <string>Text_TeXHyphen</string>
         <string>Text_Wiki</string>
+        <string>Tree</string>
         <string>Validate</string>
         <string>Validate_AR</string>
         <string>Validate_AT</string>
@@ -115,9 +149,15 @@
         <string>Validate_IS</string>
         <string>Validate_NL</string>
         <string>Validate_PL</string>
+        <string>Validate_US</string>
         <string>Validate_ZA</string>
         <string>XML_FastCreate</string>
         <string>XML_Feed_Parser</string>
+        <string>XML_HTMLSax</string>
+        <string>XML_image2svg</string>
+        <string>XML_RSS</string>
+        <string>XML_SVG</string>
+        <string>XML_svg2image</string>
       </jobNames>
       <jobFilters/>
       <columns>
