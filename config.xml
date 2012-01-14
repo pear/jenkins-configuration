@@ -121,7 +121,6 @@
         <string>PEAR_Frontend_Gtk2</string>
         <string>PEAR_PackageUpdate</string>
         <string>PHP_Parser</string>
-        <string>PHP_ParserGenerator</string>
         <string>PHP_Shell</string>
         <string>QA_Peardoc_Coverage</string>
         <string>Science_Chemistry</string>
@@ -169,6 +168,182 @@
         <hudson.views.LastDurationColumn/>
         <hudson.views.BuildButtonColumn/>
       </columns>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Known Good</name>
+      <description>Tests that should be passing.  If a test in here is failing, prompt action needs to be taken.</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames class="tree-set">
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Archive_Tar</string>
+        <string>Auth</string>
+        <string>Auth_PrefManager</string>
+        <string>Auth_PrefManager2</string>
+        <string>Auth_SASL</string>
+        <string>Benchmark</string>
+        <string>Cache</string>
+        <string>Calendar</string>
+        <string>Config_Lite</string>
+        <string>Console_CommandLine</string>
+        <string>Console_Getargs</string>
+        <string>Console_Table</string>
+        <string>Contact_AddressBook</string>
+        <string>Contact_Vcard_Build</string>
+        <string>Contact_Vcard_Parse</string>
+        <string>Crypt_Blowfish</string>
+        <string>Crypt_CHAP</string>
+        <string>Crypt_DiffieHellman</string>
+        <string>Crypt_GPG</string>
+        <string>Crypt_HMAC</string>
+        <string>Crypt_HMAC2</string>
+        <string>Crypt_MicroID</string>
+        <string>Crypt_RC42</string>
+        <string>Crypt_XXTEA</string>
+        <string>DB</string>
+        <string>DB_NestedSet</string>
+        <string>DB_QueryTool</string>
+        <string>DB_Table</string>
+        <string>Event_Dispatcher</string>
+        <string>File_Archive</string>
+        <string>File_Bittorrent</string>
+        <string>File_Bittorrent2</string>
+        <string>File_DeliciousLibrary</string>
+        <string>File_DNS</string>
+        <string>File_HtAccess</string>
+        <string>File_IMC</string>
+        <string>File_MARC</string>
+        <string>File_Passwd</string>
+        <string>File_SearchReplace</string>
+        <string>File_Sitemap</string>
+        <string>Games_Chess</string>
+        <string>Gtk_FileDrop</string>
+        <string>HTML_BBCodeParser</string>
+        <string>HTML_Common2</string>
+        <string>HTML_CSS</string>
+        <string>HTML_Form</string>
+        <string>HTML_Javascript</string>
+        <string>HTML_Progress2</string>
+        <string>HTML_QuickForm2</string>
+        <string>HTML_Table</string>
+        <string>HTML_TagCloud</string>
+        <string>HTML_Template_IT</string>
+        <string>HTML_Template_PHPLIB</string>
+        <string>HTML_Template_Sigma</string>
+        <string>HTTP</string>
+        <string>HTTP_Download</string>
+        <string>HTTP_Download2</string>
+        <string>HTTP_Request2</string>
+        <string>HTTP_Session2</string>
+        <string>HTTP_WebDAV_Client</string>
+        <string>HTTP_WebDAV_Server</string>
+        <string>Image_Barcode2</string>
+        <string>Image_Color</string>
+        <string>Image_Color2</string>
+        <string>Image_GraphViz</string>
+        <string>Image_QRCode</string>
+        <string>Image_Transform</string>
+        <string>Log</string>
+        <string>Mail</string>
+        <string>Mail_Mbox</string>
+        <string>Mail_Mime</string>
+        <string>Mail_Mime2</string>
+        <string>Mail_mimeDecode</string>
+        <string>Math_Matrix</string>
+        <string>Math_Numerical_RootFinding</string>
+        <string>Math_Quaternion</string>
+        <string>Math_Stats</string>
+        <string>Math_TrigOp</string>
+        <string>Math_Vector</string>
+        <string>MDB2</string>
+        <string>MDB2_Schema</string>
+        <string>MDB_QueryTool</string>
+        <string>MIME_Type</string>
+        <string>MP3_Playlist</string>
+        <string>Net_CheckIP2</string>
+        <string>Net_Cyrus</string>
+        <string>Net_DNSBL</string>
+        <string>Net_Growl</string>
+        <string>Net_IDNA2</string>
+        <string>Net_IPv4</string>
+        <string>Net_IPv6</string>
+        <string>Net_LDAP</string>
+        <string>Net_SMTP</string>
+        <string>Net_URL2</string>
+        <string>Net_UserAgent_Mobile</string>
+        <string>Numbers_Roman</string>
+        <string>Numbers_Words</string>
+        <string>Payment_DTA</string>
+        <string>PEAR_PackageFileManager</string>
+        <string>PEAR_PackageUpdate</string>
+        <string>PEAR_Size</string>
+        <string>PHP_ArrayOf</string>
+        <string>PHP_CodeSniffer</string>
+        <string>PHP_Shell</string>
+        <string>PhpDocumentor</string>
+        <string>Science_Chemistry</string>
+        <string>Services_Akismet2</string>
+        <string>Services_Amazon</string>
+        <string>Services_Amazon_SQS</string>
+        <string>Services_Ebay</string>
+        <string>Services_ExchangeRates</string>
+        <string>Services_GeoNames</string>
+        <string>Services_ReCaptcha</string>
+        <string>Services_Twitter</string>
+        <string>Services_W3C_CSSValidator</string>
+        <string>Services_Webservice</string>
+        <string>Services_Yadis</string>
+        <string>SQL_Parser</string>
+        <string>Stream_Var</string>
+        <string>Structures_Graph</string>
+        <string>Structures_LinkedList</string>
+        <string>Text_CAPTCHA_Numeral</string>
+        <string>Text_Highlighter</string>
+        <string>Text_Password</string>
+        <string>Text_PathNavigator</string>
+        <string>Text_Statistics</string>
+        <string>URI_Template</string>
+        <string>Validate_AR</string>
+        <string>Validate_AT</string>
+        <string>Validate_AU</string>
+        <string>Validate_BE</string>
+        <string>Validate_ES</string>
+        <string>Validate_FR</string>
+        <string>Validate_HU</string>
+        <string>Validate_IN</string>
+        <string>Validate_IS</string>
+        <string>Validate_NL</string>
+        <string>Validate_PL</string>
+        <string>Validate_US</string>
+        <string>Validate_ZA</string>
+        <string>XML_FastCreate</string>
+        <string>XML_image2svg</string>
+        <string>XML_Parser</string>
+        <string>XML_Query2XML</string>
+        <string>XML_RPC</string>
+        <string>XML_RPC2</string>
+        <string>XML_RSS</string>
+        <string>XML_Serializer</string>
+        <string>XML_SVG</string>
+        <string>XML_svg2image</string>
+        <string>XML_Tree</string>
+        <string>XML_Util</string>
+        <string>XML_Util2</string>
+        <string>XML_XUL</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <statusFilter>true</statusFilter>
     </listView>
   </views>
   <primaryView>All</primaryView>
