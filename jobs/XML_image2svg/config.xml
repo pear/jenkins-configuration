@@ -3,19 +3,40 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <scm class="hudson.scm.SubversionSCM">
-    <locations>
-      <hudson.scm.SubversionSCM_-ModuleLocation>
-        <remote>http://svn.php.net/repository/pear/packages/XML_image2svg/trunk</remote>
-        <local>.</local>
-      </hudson.scm.SubversionSCM_-ModuleLocation>
-    </locations>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name></name>
+        <refspec></refspec>
+        <url>git://github.com/pear/XML_image2svg.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>**</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <disableSubmodules>false</disableSubmodules>
+    <recursiveSubmodules>false</recursiveSubmodules>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <authorOrCommitter>false</authorOrCommitter>
+    <clean>false</clean>
+    <wipeOutWorkspace>false</wipeOutWorkspace>
+    <pruneBranches>false</pruneBranches>
+    <remotePoll>false</remotePoll>
+    <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
+    <gitTool>Default</gitTool>
+    <submoduleCfg class="list"/>
+    <relativeTargetDir></relativeTargetDir>
+    <reference></reference>
     <excludedRegions></excludedRegions>
-    <includedRegions></includedRegions>
     <excludedUsers></excludedUsers>
-    <excludedRevprop></excludedRevprop>
-    <excludedCommitMessages></excludedCommitMessages>
-    <workspaceUpdater class="hudson.scm.subversion.UpdateUpdater"/>
+    <gitConfigName></gitConfigName>
+    <gitConfigEmail></gitConfigEmail>
+    <skipTag>false</skipTag>
+    <scmName></scmName>
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -26,33 +47,15 @@
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
     <hudson.triggers.SCMTrigger>
-      <spec></spec>
+      <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
+      <command>pear package</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <org.jenkinsci.plugins.cloverphp.CloverPublisher>
-      <publishHtmlReport>true</publishHtmlReport>
-      <reportDir>build/coverage</reportDir>
-      <xmlLocation>build/logs/clover.xml</xmlLocation>
-      <disableArchiving>false</disableArchiving>
-      <healthyTarget>
-        <methodCoverage>70</methodCoverage>
-        <statementCoverage>80</statementCoverage>
-      </healthyTarget>
-      <unhealthyTarget/>
-      <failingTarget/>
-    </org.jenkinsci.plugins.cloverphp.CloverPublisher>
-    <hudson.tasks.junit.JUnitResultArchiver>
-      <testResults>build/logs/junit.xml</testResults>
-      <keepLongStdio>false</keepLongStdio>
-      <testDataPublishers/>
-    </hudson.tasks.junit.JUnitResultArchiver>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>

@@ -3,11 +3,7 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty>
-      <projectUrl>https://github.com/pear/Event_Dispatcher/</projectUrl>
-    </com.coravy.hudson.plugins.github.GithubProjectProperty>
-  </properties>
+  <properties/>
   <scm class="hudson.scm.SubversionSCM">
     <locations>
       <hudson.scm.SubversionSCM_-ModuleLocation>
@@ -30,9 +26,6 @@
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger>
-      <spec></spec>
-    </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
       <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>

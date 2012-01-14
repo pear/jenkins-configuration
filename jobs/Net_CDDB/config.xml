@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>WARNING: The CDDB server is flaky, so these tests fail intermittently.</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.scm.SubversionSCM">
@@ -26,9 +26,6 @@
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger>
-      <spec></spec>
-    </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
       <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
@@ -36,7 +33,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>phpunit -d error_reporting=30719 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
+      <command>phpunit -d error_reporting=22527 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

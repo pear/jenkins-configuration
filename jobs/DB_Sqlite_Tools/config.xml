@@ -3,11 +3,7 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty>
-      <projectUrl>http://github.com/pear/DB_Sqlite_Tools/</projectUrl>
-    </com.coravy.hudson.plugins.github.GithubProjectProperty>
-  </properties>
+  <properties/>
   <scm class="hudson.plugins.git.GitSCM">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
@@ -50,9 +46,6 @@
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
-    <com.cloudbees.jenkins.GitHubPushTrigger>
-      <spec></spec>
-    </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
       <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
@@ -60,30 +53,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
       <command>pear package</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <org.jenkinsci.plugins.cloverphp.CloverPublisher>
-      <publishHtmlReport>true</publishHtmlReport>
-      <reportDir>build/coverage</reportDir>
-      <xmlLocation>build/logs/clover.xml</xmlLocation>
-      <disableArchiving>false</disableArchiving>
-      <healthyTarget>
-        <methodCoverage>70</methodCoverage>
-        <statementCoverage>80</statementCoverage>
-      </healthyTarget>
-      <unhealthyTarget/>
-      <failingTarget/>
-    </org.jenkinsci.plugins.cloverphp.CloverPublisher>
-    <hudson.tasks.junit.JUnitResultArchiver>
-      <testResults>build/logs/junit.xml</testResults>
-      <keepLongStdio>false</keepLongStdio>
-      <testDataPublishers/>
-    </hudson.tasks.junit.JUnitResultArchiver>
-  </publishers>
+  <publishers/>
   <buildWrappers/>
 </project>
