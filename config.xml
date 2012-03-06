@@ -301,6 +301,7 @@
         <string>Structures_LinkedList</string>
         <string>Text_CAPTCHA_Numeral</string>
         <string>Text_Highlighter</string>
+        <string>Text_LanguageDetect</string>
         <string>Text_Password</string>
         <string>Text_PathNavigator</string>
         <string>Text_Statistics</string>
