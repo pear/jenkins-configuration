@@ -1,5 +1,5 @@
 <?php
-// Detects any configurations using 'pear package' as a shell task and migrates them to pyrus.
+// Detects any configurations with a github source location, but no build trigger
 $dir = new DirectoryIterator(dirname(__FILE__) . '/jobs/');
 
 foreach ($dir as $file) {
@@ -9,14 +9,14 @@ foreach ($dir as $file) {
 
             $config = simplexml_load_file($child->getRealPath());
 
-            foreach ($config->xpath('//hudson.tasks.Shell/command') as $cmd) {
-                if ((string)$cmd == 'pear package') {
-                    $cmd[0] = 'php ~/pyrus.phar package';
+            foreach ($config->xpath('//scm[@class="hudson.plugins.git.GitSCM"]/../triggers') as $triggers) {
+                if (!$triggers->xpath('com.cloudbees.jenkins.GitHubPushTrigger')) {
+                    $triggers->addChild('com.cloudbees.jenkins.GitHubPushTrigger')
+                              ->addChild('spec');
 
                     file_put_contents($child->getRealPath(), $config->asXML());
                 }
             }
-
 
         }
     }

@@ -49,7 +49,7 @@
     <hudson.triggers.SCMTrigger>
       <spec>@daily</spec>
     </hudson.triggers.SCMTrigger>
-  </triggers>
+  <com.cloudbees.jenkins.GitHubPushTrigger><spec/></com.cloudbees.jenkins.GitHubPushTrigger></triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
