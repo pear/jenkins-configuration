@@ -49,7 +49,7 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>pear package</command>
+      <command>php ~/pyrus.phar package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

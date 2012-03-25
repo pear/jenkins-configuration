@@ -1,15 +1,15 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project>
   <actions/>
-  <description></description>
+  <description/>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.plugins.git.GitSCM">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
-        <name></name>
-        <refspec></refspec>
+        <name/>
+        <refspec/>
         <url>git://github.com/pear/Crypt_RSA.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
@@ -29,14 +29,14 @@
     <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
     <gitTool>Default</gitTool>
     <submoduleCfg class="list"/>
-    <relativeTargetDir></relativeTargetDir>
-    <reference></reference>
-    <excludedRegions></excludedRegions>
-    <excludedUsers></excludedUsers>
-    <gitConfigName></gitConfigName>
-    <gitConfigEmail></gitConfigEmail>
+    <relativeTargetDir/>
+    <reference/>
+    <excludedRegions/>
+    <excludedUsers/>
+    <gitConfigName/>
+    <gitConfigEmail/>
     <skipTag>false</skipTag>
-    <scmName></scmName>
+    <scmName/>
   </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
@@ -47,7 +47,7 @@
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
     <com.cloudbees.jenkins.GitHubPushTrigger>
-      <spec></spec>
+      <spec/>
     </com.cloudbees.jenkins.GitHubPushTrigger>
     <hudson.triggers.SCMTrigger>
       <spec>@daily</spec>
@@ -59,7 +59,7 @@
       <command>phpunit -d error_reporting=30719 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>pear package</command>
+      <command>php ~/pyrus.phar package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

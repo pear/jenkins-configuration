@@ -56,7 +56,7 @@
       <command>phpunit --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/AllTests.php</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>pear package</command>
+      <command>php ~/pyrus.phar package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

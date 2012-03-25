@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project>
   <actions/>
-  <description></description>
+  <description/>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.scm.SubversionSCM">
@@ -11,11 +11,11 @@
         <local>.</local>
       </hudson.scm.SubversionSCM_-ModuleLocation>
     </locations>
-    <excludedRegions></excludedRegions>
-    <includedRegions></includedRegions>
-    <excludedUsers></excludedUsers>
-    <excludedRevprop></excludedRevprop>
-    <excludedCommitMessages></excludedCommitMessages>
+    <excludedRegions/>
+    <includedRegions/>
+    <excludedUsers/>
+    <excludedRevprop/>
+    <excludedCommitMessages/>
     <workspaceUpdater class="hudson.scm.subversion.UpdateUpdater"/>
   </scm>
   <canRoam>true</canRoam>
@@ -36,7 +36,7 @@
       <command>phpunit -d error_reporting=30719 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/AllTests.php</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>pear package</command>
+      <command>php ~/pyrus.phar package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

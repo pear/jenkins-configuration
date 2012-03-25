@@ -35,6 +35,9 @@
     <hudson.tasks.Shell>
       <command>phpunit -d error_reporting=22527 --coverage-html build/coverage/ --coverage-clover build/logs/clover.xml --log-junit build/logs/junit.xml tests/</command>
     </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>php ~/pyrus.phar package</command>
+    </hudson.tasks.Shell>
   </builders>
   <publishers>
     <org.jenkinsci.plugins.cloverphp.CloverPublisher>

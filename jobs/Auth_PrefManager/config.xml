@@ -34,7 +34,7 @@
 </command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>pear package</command>
+      <command>php ~/pyrus.phar package</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>phpdoc -d . -t build/apidocs --title Auth_PrefManager</command>
