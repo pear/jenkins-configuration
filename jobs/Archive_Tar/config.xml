@@ -26,9 +26,9 @@
     <hudson.triggers.TimerTrigger>
       <spec>@weekly</spec>
     </hudson.triggers.TimerTrigger>
-    <hudson.triggers.SCMTrigger>
+    <com.cloudbees.jenkins.GitHubPushTrigger>
       <spec></spec>
-    </hudson.triggers.SCMTrigger>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
@@ -37,6 +37,9 @@
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>pear package</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>phpdoc -d . -t build/apidocs</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
@@ -57,6 +60,10 @@
       <keepLongStdio>false</keepLongStdio>
       <testDataPublishers/>
     </hudson.tasks.junit.JUnitResultArchiver>
+    <hudson.tasks.JavadocArchiver>
+      <javadocDir>build/apidocs</javadocDir>
+      <keepAll>false</keepAll>
+    </hudson.tasks.JavadocArchiver>
   </publishers>
   <buildWrappers/>
 </project>

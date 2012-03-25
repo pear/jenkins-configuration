@@ -3,19 +3,23 @@
   <actions/>
   <description></description>
   <keepDependencies>false</keepDependencies>
-  <properties/>
+  <properties>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty>
+      <projectUrl>http://github.com/pear/RDF/</projectUrl>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+  </properties>
   <scm class="hudson.plugins.git.GitSCM">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <name></name>
         <refspec></refspec>
-        <url>git://github.com/pear/Benchmark.git</url>
+        <url>git://github.com/pear/RDF.git</url>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>master</name>
+        <name>**</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <disableSubmodules>false</disableSubmodules>
@@ -44,25 +48,19 @@
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers class="vector">
-    <hudson.triggers.TimerTrigger>
-      <spec>@weekly</spec>
-    </hudson.triggers.TimerTrigger>
-    <hudson.triggers.SCMTrigger>
-      <spec>@daily</spec>
-    </hudson.triggers.SCMTrigger>
+    <com.cloudbees.jenkins.GitHubPushTrigger>
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
   </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>php ~/pyrus.phar package</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>phpdoc -d . -t build/apidocs --title Benchmark</command>
+      <command>phpdoc -d . --defaultpackagename RDF --title=RDF</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.JavadocArchiver>
-      <javadocDir>build/apidocs</javadocDir>
+      <javadocDir>output</javadocDir>
       <keepAll>false</keepAll>
     </hudson.tasks.JavadocArchiver>
   </publishers>

@@ -38,6 +38,9 @@
     <hudson.tasks.Shell>
       <command>php ~/pyrus.phar package</command>
     </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>phpdoc -d . --title Cache -t build/apidocs</command>
+    </hudson.tasks.Shell>
   </builders>
   <publishers>
     <org.jenkinsci.plugins.cloverphp.CloverPublisher>
@@ -57,6 +60,10 @@
       <keepLongStdio>false</keepLongStdio>
       <testDataPublishers/>
     </hudson.tasks.junit.JUnitResultArchiver>
+    <hudson.tasks.JavadocArchiver>
+      <javadocDir>build/apidocs</javadocDir>
+      <keepAll>false</keepAll>
+    </hudson.tasks.JavadocArchiver>
   </publishers>
   <buildWrappers/>
 </project>
