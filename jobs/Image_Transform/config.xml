@@ -33,7 +33,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>cd tests/ &amp;&amp; phpunit -d error_reporting=30719 -c phpunit.xml --coverage-html ../build/coverage/ --coverage-clover ../build/logs/clover.xml --log-junit ../build/logs/junit.xml .</command>
+      <command>phpunit -c phpunit.xml tests/</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>php ~/pyrus.phar package</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

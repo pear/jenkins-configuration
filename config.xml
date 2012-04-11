@@ -3,8 +3,8 @@
   <disabledAdministrativeMonitors>
     <string>hudson.diagnosis.TooManyJobsButNoView</string>
   </disabledAdministrativeMonitors>
-  <version>1.446</version>
-  <numExecutors>5</numExecutors>
+  <version>1.456</version>
+  <numExecutors>10</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="org.jenkinsci.plugins.GithubAuthorizationStrategy">
@@ -26,6 +26,7 @@
       </adminUserNameList>
       <authenticatedUserReadPermission>true</authenticatedUserReadPermission>
       <allowGithubWebHookPermission>true</allowGithubWebHookPermission>
+      <allowCcTrayPermission>false</allowCcTrayPermission>
       <allowAnonymousReadPermission>true</allowAnonymousReadPermission>
     </rootACL>
   </authorizationStrategy>
@@ -34,6 +35,7 @@
     <clientID>1d0da4bfa6af947f0490</clientID>
     <clientSecret>c71ab7fa1e1ddd84676d4ae8ba1a0e4c8ef82e65</clientSecret>
   </securityRealm>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
   <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter">
@@ -346,8 +348,44 @@
       </columns>
       <statusFilter>true</statusFilter>
     </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Failed</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames class="tree-set">
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Services_OpenStreetMap</string>
+        <string>Validate_CA</string>
+        <string>Validate_CH</string>
+        <string>Validate_DE</string>
+        <string>Validate_ISPN</string>
+        <string>Validate_ptBR</string>
+        <string>Validate_SE</string>
+      </jobNames>
+      <jobFilters>
+        <hudson.views.JobStatusFilter>
+          <includeExcludeTypeString>includeMatched</includeExcludeTypeString>
+          <unstable>false</unstable>
+          <failed>true</failed>
+          <aborted>false</aborted>
+          <disabled>false</disabled>
+          <stable>false</stable>
+        </hudson.views.JobStatusFilter>
+      </jobFilters>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+    </listView>
   </views>
-  <primaryView>All</primaryView>
+  <primaryView>Failed</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
   <label></label>
   <nodeProperties/>
