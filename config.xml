@@ -356,13 +356,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames class="tree-set">
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Services_OpenStreetMap</string>
-        <string>Validate_CA</string>
-        <string>Validate_CH</string>
-        <string>Validate_DE</string>
-        <string>Validate_ISPN</string>
-        <string>Validate_ptBR</string>
-        <string>Validate_SE</string>
+        <string>Validate_Finance</string>
       </jobNames>
       <jobFilters>
         <hudson.views.JobStatusFilter>
